@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE mapper PUBLIC  "-//mybatis.org//DTD Mapper 3.0//EN"
+ "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.kootour.mapper.CourseLocalhostVMapper">
+<select id="selectByCondition" parameterType="com.kootour.mapper.paramentity.CourseLocalhostVParamEntity"
+ resultType="com.kootour.mapper.entity.CourseLocalhostVEntity">
+    select
+       LANG_ID as  langId,
+       COURSE_IDENTI_NO as  courseIdentiNo,
+       COURSE_CODE as  courseCode,
+       LOCALHOST_IDENTI_NO as  localhostIdentiNo,
+       FULL_NAME as  fullName,
+       COURSE_CONTENT as  courseContent,
+       DURATION as  duration,
+       DURATION_UNIT as  durationUnit,
+       MAX_TOURIST_NUM as  maxTouristNum,
+       MIN_TOURIST_NUM as  minTouristNum,
+       MONEY_UNIT as  moneyUnit,
+       PERSON_OR_GROUP as  personOrGroup,
+       MIN_HOUR_ADVANCE as  minHourAdvance,
+       LAST_NAME as  lastName,
+       FIRST_NAME as  firstName,
+       PHOTO as  photo
+    from COURSE_LOCALHOST_V
+    where 
+LANG_ID is not null
+<if test="langId != null and langId != '' ">
+   and     LANG_ID =#{langId}
+</if>
+<if test="courseIdentiNo != null and courseIdentiNo != '' ">
+   and     COURSE_IDENTI_NO =#{courseIdentiNo}
+</if>
+<if test="courseCode != null and courseCode != '' ">
+   and     COURSE_CODE =#{courseCode}
+</if>
+<if test="localhostIdentiNo != null and localhostIdentiNo != '' ">
+   and     LOCALHOST_IDENTI_NO =#{localhostIdentiNo}
+</if>
+<if test="fullName != null and fullName != '' ">
+   and     FULL_NAME LIKE#{fullName}
+</if>
+<if test="lastName != null and lastName != '' ">
+   and     LAST_NAME =#{lastName}
+</if>
+<if test="firstName != null and firstName != '' ">
+   and     FIRST_NAME =#{firstName}
+</if>
+   </select>
+</mapper>
+
+

@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE mapper PUBLIC  "-//mybatis.org//DTD Mapper 3.0//EN"
+ "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.kootour.mapper.UserOrderExtraOptionMapper">
+<select id="selectAll" 
+ resultType="com.kootour.mapper.entity.UserOrderExtraOptionEntity">
+    select
+       LANG_ID as  langId,
+       USER_ORDER_EXTRA_OPTION_IDENTI_NO as  userOrderExtraOptionIdentiNo,
+       ORDER_IDENTI_NO as  orderIdentiNo,
+       COURSE_IDENTI_NO as  courseIdentiNo,
+       EXTRA_OPTION_IDENTI_NO as  extraOptionIdentiNo,
+       DISP_ORDER as  dispOrder,
+       TOURIST_NUM as  touristNum,
+       INFANT_FREE as  infantFree,
+       PERSON_OR_GROUP as  personOrGroup,
+       TOTAL_MONEY as  totalMoney,
+       DEL_FLG as  delFlg,
+       DATE_FORMAT(CREATE_TIME,'%Y%m%d%H%i%S') as  createTime,
+       DATE_FORMAT(MODIFY_TIME,'%Y%m%d%H%i%S') as  modifyTime
+    from USER_ORDER_EXTRA_OPTION
+   </select>
+<select id="selectByPK" parameterType="com.kootour.mapper.paramentity.UserOrderExtraOptionParamEntity"
+ resultType="com.kootour.mapper.entity.UserOrderExtraOptionEntity">
+    select
+       LANG_ID as  langId,
+       USER_ORDER_EXTRA_OPTION_IDENTI_NO as  userOrderExtraOptionIdentiNo,
+       ORDER_IDENTI_NO as  orderIdentiNo,
+       COURSE_IDENTI_NO as  courseIdentiNo,
+       EXTRA_OPTION_IDENTI_NO as  extraOptionIdentiNo,
+       DISP_ORDER as  dispOrder,
+       TOURIST_NUM as  touristNum,
+       INFANT_FREE as  infantFree,
+       PERSON_OR_GROUP as  personOrGroup,
+       TOTAL_MONEY as  totalMoney,
+       DEL_FLG as  delFlg,
+       DATE_FORMAT(CREATE_TIME,'%Y%m%d%H%i%S') as  createTime,
+       DATE_FORMAT(MODIFY_TIME,'%Y%m%d%H%i%S') as  modifyTime
+    from USER_ORDER_EXTRA_OPTION
+    where 
+    LANG_ID =#{langId}
+   and     USER_ORDER_EXTRA_OPTION_IDENTI_NO =#{userOrderExtraOptionIdentiNo}
+   </select>
+<select id="selectByCondition" parameterType="com.kootour.mapper.paramentity.UserOrderExtraOptionParamEntity"
+ resultType="com.kootour.mapper.entity.UserOrderExtraOptionEntity">
+    select
+       LANG_ID as  langId,
+       USER_ORDER_EXTRA_OPTION_IDENTI_NO as  userOrderExtraOptionIdentiNo,
+       ORDER_IDENTI_NO as  orderIdentiNo,
+       COURSE_IDENTI_NO as  courseIdentiNo,
+       EXTRA_OPTION_IDENTI_NO as  extraOptionIdentiNo,
+       DISP_ORDER as  dispOrder,
+       TOURIST_NUM as  touristNum,
+       INFANT_FREE as  infantFree,
+       PERSON_OR_GROUP as  personOrGroup,
+       TOTAL_MONEY as  totalMoney,
+       DEL_FLG as  delFlg,
+       DATE_FORMAT(CREATE_TIME,'%Y%m%d%H%i%S') as  createTime,
+       DATE_FORMAT(MODIFY_TIME,'%Y%m%d%H%i%S') as  modifyTime
+    from USER_ORDER_EXTRA_OPTION
+    where 
+LANG_ID is not null
+<if test="langId != null and langId != '' ">
+   and     LANG_ID =#{langId}
+</if>
+<if test="userOrderExtraOptionIdentiNo != null and userOrderExtraOptionIdentiNo != '' ">
+   and     USER_ORDER_EXTRA_OPTION_IDENTI_NO =#{userOrderExtraOptionIdentiNo}
+</if>
+<if test="orderIdentiNo != null and orderIdentiNo != '' ">
+   and     ORDER_IDENTI_NO =#{orderIdentiNo}
+</if>
+<if test="courseIdentiNo != null and courseIdentiNo != '' ">
+   and     COURSE_IDENTI_NO =#{courseIdentiNo}
+</if>
+<if test="extraOptionIdentiNo != null and extraOptionIdentiNo != '' ">
+   and     EXTRA_OPTION_IDENTI_NO =#{extraOptionIdentiNo}
+</if>
+<if test="delFlg != null and delFlg != '' ">
+   and     DEL_FLG =#{delFlg}
+</if>
+   </select>
+<update id="updateByPK" 
+ parameterType="com.kootour.mapper.entity.UserOrderExtraOptionEntity">
+    update USER_ORDER_EXTRA_OPTION set
+       LANG_ID=       #{langId},
+       USER_ORDER_EXTRA_OPTION_IDENTI_NO=       #{userOrderExtraOptionIdentiNo},
+       ORDER_IDENTI_NO=       #{orderIdentiNo},
+       COURSE_IDENTI_NO=       #{courseIdentiNo},
+       EXTRA_OPTION_IDENTI_NO=       #{extraOptionIdentiNo},
+       DISP_ORDER=       #{dispOrder},
+       TOURIST_NUM=       #{touristNum},
+       INFANT_FREE=       #{infantFree},
+       PERSON_OR_GROUP=       #{personOrGroup},
+       TOTAL_MONEY=       #{totalMoney},
+       DEL_FLG=       #{delFlg},
+       CREATE_TIME=       #{createTime},
+       MODIFY_TIME=   now() 
+    where 
+    LANG_ID =#{langId}
+   and     USER_ORDER_EXTRA_OPTION_IDENTI_NO =#{userOrderExtraOptionIdentiNo}
+   </update>
+<insert id="insertOne" 
+ parameterType="com.kootour.mapper.entity.UserOrderExtraOptionEntity">
+    insert into USER_ORDER_EXTRA_OPTION(
+       LANG_ID,
+       USER_ORDER_EXTRA_OPTION_IDENTI_NO,
+       ORDER_IDENTI_NO,
+       COURSE_IDENTI_NO,
+       EXTRA_OPTION_IDENTI_NO,
+       DISP_ORDER,
+       TOURIST_NUM,
+       INFANT_FREE,
+       PERSON_OR_GROUP,
+       TOTAL_MONEY,
+       DEL_FLG,
+       CREATE_TIME,
+       MODIFY_TIME
+)values(
+       #{langId},
+       #{userOrderExtraOptionIdentiNo},
+       #{orderIdentiNo},
+       #{courseIdentiNo},
+       #{extraOptionIdentiNo},
+       #{dispOrder},
+       #{touristNum},
+       #{infantFree},
+       #{personOrGroup},
+       #{totalMoney},
+       #{delFlg},
+   now() ,
+   now() 
+   )
+   </insert>
+</mapper>
+
+

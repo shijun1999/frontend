@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE mapper PUBLIC  "-//mybatis.org//DTD Mapper 3.0//EN"
+ "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.kootour.mapper.CourseOrderVMapper">
+
+	<select id="selectByCondition"
+		parameterType="com.kootour.mapper.paramentity.CourseOrderVParamEntity"
+		resultType="com.kootour.mapper.entity.CourseOrderVEntity">
+		select
+		LANG_ID as langId,
+		ORDER_IDENTI_NO as orderIdentiNo,
+		COURSE_IDENTI_NO as courseIdentiNo,
+		LOCALHOST_IDENTI_NO as localhostIdentiNo,
+		TOURIST_IDENTI_NO as touristIdentiNo,
+		RESERVATION_DATE as reservationDate,
+		SCHEDULE_OPTION_IDENTI_NO as scheduleOptionIdentiNo,
+		BGN_TIME as bgnTime,
+		STATUS as status,
+		CONSENT as consent,
+		CANCEL_DATE as cancelDate,
+		ORDER_DATE as orderDate,
+		MONEY_UNIT as moneyUnit,
+		TOURIST_NUM as touristNum,
+		INFANT_FREE as infantFree,
+		PRICE as price,
+		DISCOUNT_PRICE as discountPrice,
+		PERSON_OR_GROUP as personOrGroup,
+		DURATION as duration,
+		DURATION_UNIT as durationUnit,
+		TOTAL_MONEY as totalMoney,
+		TIPS as tips,
+		DEL_FLG as delFlg,
+		LOCALHOST_LAST_NAME as localhostLastName,
+		LOCALHOST_FIRST_NAME as localhostFirstName,
+		COURSE_FULL_NAME as courseFullName,
+		LOCALHOST_PICTURE as localhostPicture,
+		TOURIST_LAST_NAME as touristLastName,
+		TOURIST_FIRST_NAME as touristFirstName
+		from COURSE_ORDER_V
+		where
+		LANG_ID is not null
+		<if test="langId != null and langId != '' ">
+			and LANG_ID =#{langId}
+		</if>
+		<if test="orderIdentiNo != null and orderIdentiNo != '' ">
+			and ORDER_IDENTI_NO =#{orderIdentiNo}
+		</if>
+		<if test="courseIdentiNo != null and courseIdentiNo != '' ">
+			and COURSE_IDENTI_NO =#{courseIdentiNo}
+		</if>
+		<if test="localhostIdentiNo != null and localhostIdentiNo != '' ">
+			and LOCALHOST_IDENTI_NO =#{localhostIdentiNo}
+		</if>
+		<if test="touristIdentiNo != null and touristIdentiNo != '' ">
+			and TOURIST_IDENTI_NO =#{touristIdentiNo}
+		</if>
+		<if test="reservationDate != null and reservationDate != '' ">
+			and RESERVATION_DATE =#{reservationDate}
+		</if>
+		<if test="scheduleOptionIdentiNo != null and scheduleOptionIdentiNo != '' ">
+			and SCHEDULE_OPTION_IDENTI_NO =#{scheduleOptionIdentiNo}
+		</if>
+		<if test="bgnTime != null and bgnTime != '' ">
+			and BGN_TIME =#{bgnTime}
+		</if>
+		<if test="status != null and status != '' ">
+			and STATUS =#{status}
+		</if>
+		<if test="consent != null and consent != '' ">
+			and CONSENT =#{consent}
+		</if>
+		<if test="cancelDate != null and cancelDate != '' ">
+			and CANCEL_DATE =#{cancelDate}
+		</if>
+		<if test="orderDate != null and orderDate != '' ">
+			and ORDER_DATE =#{orderDate}
+		</if>
+		<if test="delFlg != null and delFlg != '' ">
+			and DEL_FLG =#{delFlg}
+		</if>
+		<if test="touristLastName != null and touristLastName != '' ">
+			and TOURIST_LAST_NAME =#{touristLastName}
+		</if>
+		<if test="touristFirstName != null and touristFirstName != '' ">
+			and TOURIST_FIRST_NAME =#{touristFirstName}
+		</if>
+
+		<if
+			test="bgnReservationDate != null and bgnReservationDate != ''  and endReservationDate != null and endReservationDate != '' ">
+			and RESERVATION_DATE between #{bgnReservationDate} and
+			#{endReservationDate}
+		</if>
+		<if
+			test="bgnBgnTime != null and bgnBgnTime != ''  and endBgnTime != null and endBgnTime != '' ">
+			and BGN_TIME between #{bgnBgnTime} and #{endBgnTime}
+		</if>
+		<if
+			test="bgnCancelDate != null and bgnCancelDate != ''  and endCancelDate != null and endCancelDate != '' ">
+			and CANCEL_DATE between #{bgnCancelDate} and #{endCancelDate}
+		</if>
+		<if
+			test="bgnOrderDate != null and bgnOrderDate != ''  and endOrderDate != null and endOrderDate != '' ">
+			and ORDER_DATE between #{bgnOrderDate} and #{endOrderDate}
+		</if>
+	</select>
+</mapper>
+
+

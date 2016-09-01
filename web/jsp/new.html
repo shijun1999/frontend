@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=0">
+    <title>Booking page | Kootour</title>
+    <link rel="icon" href="/images/favicon.ico" type="image/x-icon"/>
+
+    <!-- Bootstrap -->
+    <link href="/assets/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/assets/css/bootstrap-theme.min.css" rel="stylesheet">
+    <link href="/assets/css/bootstrap-datetimepicker.min.css" rel="stylesheet">
+    <link href="/assets/css/kootour.css" rel="stylesheet">
+
+    <style>
+        .checkbox {
+            display: initial;
+        }
+    input {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    -ms-appearance: none;
+    -o-appearance: none;
+    appearance: none;
+    box-shadow: none;
+    -webkit-box-shadow: none;
+    }
+
+    </style>
+</head>
+<body>
+
+
+   <h1>Kootour</h1>
+   <div class="container">
+       <div class="row">
+           <div class="left-column col-lg-9 col-md-9 col-sm-12 col-xs-12">
+
+               <section class="section section-small">
+
+                   <form id="form1" class="form-horizontal row" action="tourist!save" onSubmit="return false;" method="post">
+
+                       <div class="widget-row col-sm-12">
+
+                           <div class="form-group form-group-sm">
+                               <div class="col-sm-2 text-left control-label ">Card Number</div>
+                               <div class="col-sm-9">
+                                   <input type="text" name="cardNumber" class="form-control gray" id="cardNumber"
+                                          placeholder="" required>
+                               </div>
+                           </div>
+
+                           <div class="form-group form-group-sm">
+                               <div class="col-sm-2 text-left control-label">Expiration</div>
+
+                               <div class="col-sm-2">
+                                   <input type="text" name="expiration" class="form-control gray" id="expiration"
+                                          placeholder="MM/YYYY" required>
+                               </div>
+
+                               <div class="col-sm-1 text-left inputDefault control-label">CVC</div>
+
+                               <div class="col-sm-2">
+                                   <input type="text" name="cvc" class="form-control inputDefault gray" id="cvc" required>
+                               </div>
+
+                               <div class="col-sm-2 control-label inputDefault">Postal Code</div>
+
+                               <div class="col-sm-2">
+                                   <input type="text" name="postalCode" class="form-control inputDefault gray"
+                                          id="postalCode" required>
+                               </div>
+                           </div>
+
+
+                           <div class="form-group form-group-sm">
+                               <div class="col-sm-offset-2 col-sm-10">
+                                   <div class="checkbox inputDefault">
+                                       <label>
+                                           <input type="checkbox"> Remember me
+                                       </label>
+                                   </div>
+                               </div>
+                           </div>
+                           <div class="form-group form-group-sm col-sm-offset-5 col-sm-10">
+                           <input type="checkbox" id="ossm" name="ossm">
+                               <label></label>
+                           <label for="ossm">Remember meme</label>
+                           </div>
+
+
+                           <div class="nested-section col-xs-offset-3 col-sm-6">
+                               <p class="text-center">
+                                   <button onclick="save();" class="btn btn-lg btn-kootour-bold fullwidth">Pay (US
+                                       $<s:property value="#request.userOrder.paidMoney"/>)
+                                   </button>
+                               </p>
+                           </div>
+                       </div>
+                   </form>
+               </section>
+           </div>
+           <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12">
+               <br>
+               <br>
+               <br>
+               <p>Any questions?</p>
+               <p><a href="#">Contract Us</a></p>
+           </div>
+       </div>
+   </div>
+
+</body>
+</html>
